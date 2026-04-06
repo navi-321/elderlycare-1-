@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* New refined palette */
+  --surface: #F8F6F1;
+  --surface-raised: #EDE9E0;
+  --surface-border: #DDD6C8;
+  --primary: #5A758B;
+  --primary-deep: #455C70;
+  --text-primary: #2D3E4C;
+  --text-secondary: #5A758B;
+  --text-muted: #7A91A6;
+  --accent: #D05A3C;
+  --accent-deep: #B34429;
+  --accent-soft: #F9E8E3;
+  --sage: #5A8A5A;
+  --sage-soft: #EEF2EE;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Subtle grain texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Refined scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Fade-in animation */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-up.delay-100 { transition-delay: 100ms; }
+.fade-in-up.delay-200 { transition-delay: 200ms; }
+.fade-in-up.delay-300 { transition-delay: 300ms; }
+.fade-in-up.delay-400 { transition-delay: 400ms; }
+
+/* Activity card hover - refined */
+.activity-card {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.activity-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 28px rgba(208, 90, 60, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Process card */
+.process-card {
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.process-card:hover {
+  border-color: var(--accent);
+  background-color: white;
+}
+
+/* Testimonial card */
+.testimonial-card {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.testimonial-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* Transparency card */
+.transparency-card {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.transparency-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(45, 62, 76, 0.06);
+}
+
+/* CTA button - refined shimmer */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+}
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 42%, rgba(255,255,255,0.2) 50%, transparent 58%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.cta-btn:hover::after {
+  transform: translateX(100%);
+}
+
+/* Persistent bottom bar */
+.bottom-bar {
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.bottom-bar.visible {
+  transform: translateY(0);
+}
+
+/* Horizontal scroll no-scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Section divider - refined */
+.section-divider {
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-soft) 100%);
+  margin: 0 auto;
+  border-radius: 1px;
+}
+
+/* Tag pill - refined */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid var(--surface-border);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: white;
+}
+
+/* Quote mark */
+.quote-mark {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--surface-border);
+  font-style: italic;
+  display: block;
+}
+
+/* Dot accent */
+.dot-accent {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  display: inline-block;
+}
