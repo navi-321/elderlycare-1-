@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
           <br />
           Memories don&apos;t. Create{' '}
           <span className="italic text-accent relative inline-block">
-            lasting bonds.
+            lasting Kinships.
             {/* Decorative SVG underline */}
             <svg
               className="absolute -bottom-2 left-0 w-full"

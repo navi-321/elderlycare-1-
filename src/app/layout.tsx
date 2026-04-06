@@ -8,8 +8,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Bond — Activities That Connect Grandparents & Grandchildren',
-  description: 'Bond pairs grandparents and grandchildren in guided activities — watercolor, storytelling, seed planting, and letter writing — designed by child development specialists.',
+  title: 'Kinship — Activities That Connect Grandparents & Grandchildren',
+  description: 'Kinship pairs grandparents and grandchildren in guided activities — watercolor, storytelling, seed planting, and letter writing — designed by child development specialists.',
   icons: {
     icon: [
       { url: '/assets/images/app_logo.png', type: 'image/x-icon' }
